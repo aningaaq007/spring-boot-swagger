@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+ spring-boot:
+    build: ./
+    container_name: swagger
+    restart: always
+    ports:
+      - "80:8080"
+    links:
+      - psql
+ psql:
+   image: postgres:latest
+   container_name: psql
+   restart: always
+   volumes:
+#     - ./pgdata:/var/lib/postgresql/data
+     - ./sql:/docker-entrypoint-initdb.d/
+   ports:
+     - "5432:5432"
+   environment:
+     POSTGRES_DB: swagger
+     POSTGRES_USER: dba
+     POSTGRES_PASSWORD: 'sQzMaXd?PMqp8bZwafea'
+     LANG: 'en_US.UTF-8'
+     LANGUAGE: 'en_US.UTF-8'
+     LC_ALL: 'en_US.UTF-8'

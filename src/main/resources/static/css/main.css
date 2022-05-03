@@ -1,0 +1,22 @@
+h1 {
+    color: #000000;
+}
+
+.error-message {
+    color: #a94442;
+}
+
+.error-message:first-letter {
+    text-transform: capitalize;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-row {
+    justify-content: center;
+}
